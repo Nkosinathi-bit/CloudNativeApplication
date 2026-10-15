@@ -1,161 +1,44 @@
-<div align="center">
+# Cloud Native Programming — Coursework Version
 
-# Student Exam Qualification Calculator
+[![Container checks](https://github.com/Nkosinathi-bit/CloudNativeApplication/actions/workflows/ci.yml/badge.svg)](https://github.com/Nkosinathi-bit/CloudNativeApplication/actions/workflows/ci.yml)
 
-A Dockerized C# console application for evaluating student examination eligibility through weighted academic assessments.
+**Coursework · C# / .NET 10 · Docker**
 
-<p>
+This repository retains an earlier coursework copy of the student examination qualification calculator.
 
-<img src="https://img.shields.io/badge/C%23-.NET%208-512BD4?style=for-the-badge&logo=dotnet&logoColor=white">
-<img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white">
-<img src="https://img.shields.io/badge/Platform-Console-2E3440?style=for-the-badge">
-<img src="https://img.shields.io/badge/Status-Complete-2EA043?style=for-the-badge">
+The [maintained portfolio version is ExamQualifier](https://github.com/Nkosinathi-bit/ExamQualifier). These repositories represent the same assignment, rather than two distinct applications.
 
-</p>
+## What the code does
 
----
+- Captures a student's name and four integer assessment marks.
+- Validates names, numeric input and the 0–100 mark range.
+- Calculates a weighted average and checks the 50% qualification threshold.
+- Holds captured results in memory for the current session.
 
-*"Simple software, predictable behaviour, reproducible execution."*
+| Assessment | Weight |
+| --- | --- |
+| Test 1 | 30% |
+| Test 2 | 50% |
+| Assignment 1 | 10% |
+| Project | 10% |
 
-</div>
+## Run locally
 
-<br>
+Install the .NET 10 SDK:
 
-## About
+~~~bash
+dotnet run --project ExamQualifier.csproj
+~~~
 
-This project implements a command-line application that evaluates whether a student is eligible to write their final examination. Marks are collected across four assessment components, combined using predefined weighting rules, and evaluated against the required qualification threshold.
+Or use Docker:
 
-The application is packaged with Docker, allowing it to execute in an isolated and consistent runtime environment without requiring a local .NET installation.
+~~~bash
+docker build -t cloud-native-coursework .
+docker run --rm -it cloud-native-coursework
+~~~
 
----
+## Repository contents
 
-## Assessment Model
+Program.cs contains the menu, validation and calculations. ExamQualifier.csproj targets .NET 10. Dockerfile and .dockerignore define the container build. Automated container checks run through GitHub Actions.
 
-| Component | Weight |
-|:----------|-------:|
-| Test 1 | **30%** |
-| Test 2 | **50%** |
-| Assignment 1 | **10%** |
-| Project | **10%** |
-
-**Qualification Requirement**
-
-```
-Weighted Average ≥ 50%
-```
-
----
-
-## Architecture
-
-```
-                   User
-                     │
-                     ▼
-         Console Input Interface
-                     │
-                     ▼
-          Student Object Model
-                     │
-                     ▼
-     Weighted Average Calculation
-                     │
-                     ▼
-      Qualification Decision Engine
-                     │
-                     ▼
-          Console Output Result
-```
-
----
-
-## Repository Layout
-
-```
-.
-├── Program.cs
-├── Student.cs
-├── StudentExamQualificationCalculator.csproj
-├── Dockerfile
-├── .dockerignore
-└── README.md
-```
-
-Every file has a single responsibility.
-
-| File | Responsibility |
-|------|----------------|
-| `Program.cs` | Application workflow and user interaction |
-| `Student.cs` | Student model and qualification logic |
-| `Dockerfile` | Container build instructions |
-| `.dockerignore` | Excludes unnecessary files during image creation |
-| `README.md` | Project documentation |
-
----
-
-## Design Principles
-
-The application was intentionally designed around a small set of principles:
-
-- Clear separation between application flow and business logic
-- Readable object-oriented design
-- Minimal project structure
-- No external dependencies beyond the .NET runtime
-- Deterministic execution through Docker
-
-Rather than introducing unnecessary abstraction, the implementation focuses on clarity and maintainability.
-
----
-
-## Container Execution
-
-### Build
-
-```bash
-docker build -t student-exam .
-```
-
-### Run
-
-```bash
-docker run -it student-exam
-```
-
-The interactive (`-it`) flags allow the application to receive keyboard input from the terminal while running inside the container.
-
----
-
-## Technology
-
-| Category | Stack |
-|----------|-------|
-| Language | C# |
-| Framework | .NET |
-| Runtime | .NET SDK |
-| Container | Docker |
-| Version Control | Git & GitHub |
-
----
-
-## Project Objectives
-
-This implementation demonstrates practical understanding of:
-
-- Object-oriented programming
-- Console application development
-- Collection management
-- Business rule implementation
-- Docker image creation
-- Container-based application deployment
-
-These objectives align with the Cloud Native Programming project requirements, which specify creating a console application to determine examination eligibility from weighted assessment marks and packaging the solution as a Docker container. :contentReference[oaicite:0]{index=0}
-
----
-
-<div align="center">
-
-### Built with C#, .NET and Docker
-
-*Cloud Native Programming • Belgium Campus*
-
-</div>
+There is no separate Student class, database or persistent storage in this implementation.
