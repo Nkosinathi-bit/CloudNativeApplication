@@ -1,0 +1,16 @@
+{
+  "project": "CloudNativeApplication",
+  "source": "9baff86390fd2968b95c07dc99cb4bd76953c842",
+  "kind": "recorded standard output",
+  "input": [
+    "1",
+    "Demo Student",
+    "75",
+    "80",
+    "70",
+    "85",
+    "2",
+    "3"
+  ],
+  "workflow_run": "https://github.com/Nkosinathi-bit/Nkosinathi-bit/actions/runs/38805132266"
+}

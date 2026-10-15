@@ -8,6 +8,14 @@ This repository retains an earlier coursework copy of the student examination qu
 
 The [maintained portfolio version is ExamQualifier](https://github.com/Nkosinathi-bit/ExamQualifier). These repositories represent the same assignment, rather than two distinct applications.
 
+## Output preview
+
+The image below presents output recorded from a real automated application run. It is a console-output excerpt; the program uses a terminal interface.
+
+![Recorded application output](docs/screenshots/console-output.png)
+
+[Full unedited output](docs/screenshots/console-output.txt) · [Capture source and sample input](docs/screenshots/capture.json)
+
 ## What the code does
 
 - Captures a student's name and four integer assessment marks.
@@ -42,3 +50,4 @@ docker run --rm -it cloud-native-coursework
 Program.cs contains the menu, validation and calculations. ExamQualifier.csproj targets .NET 10. Dockerfile and .dockerignore define the container build. Automated container checks run through GitHub Actions.
 
 There is no separate Student class, database or persistent storage in this implementation.
+
